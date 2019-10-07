@@ -1,16 +1,18 @@
 class ListaUsuarios < SitePrism::Page
-    set_url 'https://automacaocombatista.herokuapp.com/users/new'
+    set_url 'https://automacaocombatista.herokuapp.com/users'
+
 
     #Formulário
-    element :buscar, 'td[class="material-icons"]' 
-    element :editar, 'td[class="material-icons"]' 
-    element :remover, 'td[class="material-icons"]' 
+    element :lista_nome, :xpath, '/html/body/div[2]/div[2]/div[3]/div/p[1]/strong'
+    element :first_nome, :xpath, '/html/body/div[3]/div/table/tbody/tr[1]/td[1]'
+    element :buscar, :xpath, '/html/body/div[3]/div/table/tbody/tr[1]/td[9]/a'
+    element :editar, 'a', :text => 'edit' 
+    element :remover, 'a', :text => 'delete' 
  
 
     #Botões Internos
     element :botao_novo_usuario, 'button[class="btn waves-light green"]' 
-    element :botao_voltar, 'button[class="btn waves-light red"]' 
-     
-
+    element :lista_voltar, 'a[class="btn red"]'
+    element :botao_proximo, 'span[class="next"]'
    end
     

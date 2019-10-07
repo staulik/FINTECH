@@ -34,7 +34,26 @@ end
 Então("o sistema alerta o usuário que o e-mail está inválido.") do 
      pega_texto = (inclui_usuario.msg_email_invalido.text).split(".").drop(6).join(".")
      puts pega_texto
+end 
+
+Quando("for alterado as informações desejadas.") do 
+     $Usuario = 'Incluir'
+     inclui_usuario.inserir_informacoes 
+ 
+     #find(inclui_usuario.botao_editar, :visible => true).click
+      sleep(2)
+      inclui_usuario.botao_editar.click
+      
+      $Usuario = 'Alterar'
+      inclui_usuario.alterar_usuario
+      
+   end                                                                              
+                                                                                 
+Então("o sistema exibe as informações alteradas.") do 
+    expect(inclui_usuario.msg_usuario_criado.text).to eql(CriaUsuarios.class_variable_get(:@@msg_usr_alterado)) 
+    puts inclui_usuario.msg_usuario_criado.text                          
 end                                                                              
+
 
 
                                                                                         

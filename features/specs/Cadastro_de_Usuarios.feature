@@ -19,3 +19,6 @@ Cenário: Realizar Cadastro de Usuários com e-mail fora do padrao
 Quando não inserir e-mail fora do padrão.
 Então o sistema alerta o usuário que o e-mail está inválido.
 
+Cenário: Realizar alteração de Usuário
+Quando for alterado as informações desejadas.
+Então o sistema exibe as informações alteradas.

@@ -14,7 +14,8 @@ class CriaUsuarios < SitePrism::Page
     #Botões Internos
     element :criar, 'div[class="actions btn waves-effect green"]' 
     element :botao_voltar, 'button[class="btn waves-light red"]' 
-
+    element :botao_editar, 'a[class="btn waves-light blue"]'
+    
     #Mensagens
     element :msg_usuario_criado, '#notice'
     element :usua_informacoes,  'div[class="col s12 center"]'
@@ -37,14 +38,15 @@ class CriaUsuarios < SitePrism::Page
             @@msg_usr_criado   =  'Usuário Criado com sucesso'
             @@valida_nome_usua =  'Silvio Automation'
         elsif $Usuario == 'Alterar'
-            @@nome            = 'Silvio Automation alterado'
-            @@ultimo_nome     = 'Tadeu - alterado'
-            @@email           = 'stadeu@fintech.com.br - alterado'
-            @@endereco        = 'rua Caiobas 29 B - Vila Prudente - alterado'
-            @@universidade     = 'PUC - alterado' 
-            @@profissao       =  'Analista de Testes Automatizados - alterado'
-            @@genero          = 'Masculino - alterado'
-            @@idade           =  '44  - alterado'
+            @@nome              = 'Silvio Automation alterado'
+            @@ultimo_nome       = 'Tadeu - alterado'
+            @@email             = 'stadeu@fintech.com.br - alterado'
+            @@endereco          = 'rua Caiobas 29 B - Vila Prudente - alterado'
+            @@universidade      = 'PUC - alterado' 
+            @@profissao         =  'Analista de Testes Automatizados - alterado'
+            @@genero            = 'Masculino - alterado'
+            @@idade             =  '44  - alterado'
+            @@msg_usr_alterado = 'Seu Usuário foi Atualizado!'
         elsif $Usuario == 'Campos_Brancos'
             @nome             = ''
             @ultimo_nome      = ''
@@ -95,5 +97,15 @@ class CriaUsuarios < SitePrism::Page
         criar.click
       end 
   end
+
+   def alterar_usuario
+
+    alt_variaveis
+
+    if $Usuario == 'Alterar'
+           nome.set(@@nome) 
+           ultimo_nome.set(@@ultimo_nome)
+           criar.click
+    end
+ end
 end
-   
